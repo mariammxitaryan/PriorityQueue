@@ -12,18 +12,18 @@ private:
 
     void heapifyUp(int);
     void heapifyDown(int);
-    T parent(int);
-    T leftChild(int);
-    T rightChild(int);
+    int parent(int) const;
+    int leftChild(int) const;
+    int rightChild(int) const;
 
 public:
-    PriorityQeueu();
-    ~PriorityQueue();
+    PriorityQueue() = default;
+    ~PriorityQueue() = default;
 
     template <typename R>
     void push_range(R&&);
 
-    template <typename Args>
+    template <typename... Args>
     void emplace(Args&&...);
 
     void push(T);
@@ -33,9 +33,9 @@ public:
     int size() const;
     void clear();
     void print() const;
-    void swap(const PriorityQueue<T>&);
+    void swap(PriorityQueue<T>&);
 };
 
-#include "priorityQueueHeader.tpp"
+#include "priorityQueueImplementation.tpp"
 
 #endif
